@@ -9,36 +9,36 @@
                      width="85" height="85" 
                      title="{{ user.get_full_name }}"
                      onerror="this.src='{% static "imgs/empty-avatar.png" %}'"
-                     alt="{% trans "Photo from" %} {{ user.get_full_name }}"/></a>
+                     alt="{% trans "Foto de" %} {{ user.get_full_name }}"/></a>
             </div>
             <h2 class="profile-name"><a href="{% url 'cyclist_dashboard' %}">{% firstof user.first_name user.username %}</a></h2>
             <p class="profile-city">{{ user.city }}</p>
         </header>
         <nav class="sidebar-nav">
             <ul class="list-unstyled">
-                <li><a class="my_requests" href="{% url 'cyclist_my_requests' %}?status=open">Meus pedidos
+                <li><a class="my_requests" href="{% url 'cyclist_my_requests' %}?status=open">{% trans "Meus pedidos" %}
                 {% if user.helpbikeanjo_set.unread.exists %}
                 <span class="alert bubble">{{ user.helpbikeanjo_set.unread.count }}</span></a></li>
                 {% endif %}
                 
-                <li><a class="new_requests" href="{% url 'cyclist_new_requests' %}?filter=new">Novos pedidos</a></li>
+                <li><a class="new_requests" href="{% url 'cyclist_new_requests' %}?filter=new">{% trans "Novos pedidos" %}</a></li>
 
                 <li>
-                    <a class="message_list" href="{% url 'dashboard_message_list' %}">Recados</a>
+                    <a class="message_list" href="{% url 'dashboard_message_list' %}">{% trans "Recados" %}</a>
                     {% if unread.messages.count %}
                         <span class="alert bubble">{{ unread.messages.count }}</span>
                     {% endif %}
                 </li>
 
-                <li><a href="{% url 'dashboard_event_list' %}">Eventos</a></li>
-                <li><a target="_blank" href="http://bikeanjo.org/novobikeanjo/foruns/">Fórum de discussão</a></li>
-                <li><a href="{% url 'tips_list' user.role %}">Dicas para pedalar</a></li>
-                <li><a class="user_register" href="{% url 'user_register' %}">Editar cadastro</a></li>
+                <li><a href="{% url 'dashboard_event_list' %}">{% trans "Eventos" %}</a></li>
+                <li><a target="_blank" href="http://bikeanjo.org/novobikeanjo/foruns/">{% trans "Fórum de discussão" %}</a></li>
+                <li><a href="{% url 'tips_list' user.role %}">{% trans "Dicas para pedalar" %}</a></li>
+                <li><a class="user_register" href="{% url 'user_register' %}">{% trans "Editar cadastro" %}</a></li>
             </ul>
         </nav>            
     </div>
     <div class="sidebar-feedback">
-        <a href="#" data-toggle="modal" data-target="#feedbackModal"><span>Como estamos pedalando?</span><br>
-        Envie seu feedback</a>
+        <a href="#" data-toggle="modal" data-target="#feedbackModal"><span>{% trans "Como estamos pedalando?" %}</span><br>
+        {% trans "Envie seu feedback" %}</a>
     </div>
 </aside>

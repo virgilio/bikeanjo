@@ -2,8 +2,8 @@
 {% providers_media_js %}
 
 <header>
-    <h2>Cadastre-se agora!</h2>
-    <p>Junte-se a uma comunidade que acredita na transformação por meio da bicicleta</p>
+    <h2>{% trans "Cadastre-se agora!" %}</h2>
+    <p>{% trans "Junte-se a uma comunidade que acredita na transformação por meio da bicicleta" %}</p>
 </header>
 
 <form class="signup card" id="signup_form" method="post" {% if action %}action="{% url action %}"{% endif %}>
@@ -25,7 +25,7 @@
 
     {% if not sociallogin and not form.instance.id %}
     <fieldset>
-        <legend>Crie sua conta usando</legend>
+        <legend>{% trans "Crie sua conta usando" %}</legend>
         {# include "socialaccount/snippets/provider_list.html" with process="login" #}
         <div class="login-social">
             {% for provider in socialaccount.providers reversed %}
@@ -39,7 +39,7 @@
 
     <fieldset {% if sociallogin or form.instance.id %}style="border:none"{% endif %}>
         {% if not sociallogin and not form.instance.id %}
-        <legend>ou crie uma conta com seu e-mail</legend>
+        <legend>{% trans "ou crie uma conta com seu e-mail" %}</legend>
         {% endif %}
         <div class="form-group {% if form.full_name.errors %}has-error has-feedback{% endif %}">
             <label class="primary-label" for="{{ form.full_name.id_for_label }}">{{ form.full_name.label }}</label>
@@ -55,7 +55,7 @@
 
         <div class="form-group {% if form.email.errors %}has-error{% endif %}">
             <label class="primary-label" for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
-            <input class="form-control" type="email" name="{{ form.email.html_name }}" id="{{ form.email.id_for_label }}" value="{{ form.email.value|default:"" }}" placeholder="{% trans 'Type your e-mail' %}">
+            <input class="form-control" type="email" name="{{ form.email.html_name }}" id="{{ form.email.id_for_label }}" value="{{ form.email.value|default:"" }}" placeholder="{% trans 'Digite seu e-mail' %}">
             <i class="fa fa-envelope-o form-control-icon"></i>
             <i class="fa fa-times form-control-feedback"></i>
             {% if form.email.errors %}
@@ -67,7 +67,7 @@
 
         <div class="form-group {% if form.email2.errors %}has-error{% endif %}">
             <label class="primary-label" for="{{ form.email2.id_for_label }}">{{ form.email2.label }}</label>
-            <input class="form-control" type="email2" name="{{ form.email2.html_name }}" id="{{ form.email2.id_for_label }}" value="{{ form.email2.value|default:"" }}" placeholder="{% trans 'Type again your email address' %}">
+            <input class="form-control" type="email2" name="{{ form.email2.html_name }}" id="{{ form.email2.id_for_label }}" value="{{ form.email2.value|default:"" }}" placeholder="{% trans 'Digite seu e-mail novamente' %}">
             <i class="fa fa-envelope-o form-control-icon"></i>
             <i class="fa fa-times form-control-feedback"></i>
             {% if form.email2.errors %}
@@ -138,11 +138,11 @@
         {% endif %}
     </fieldset>
 
-    <button class="send-form btn btn-primary btn-block btn-lg" type="submit">Cadastre-se</button>
-    <p class="create-account">Já faz parte? <a href="{{ login_url }}">Faça o login</a></p>
+    <button class="send-form btn btn-primary btn-block btn-lg" type="submit">{% trans "Cadastre-se" %}</button>
+    <p class="create-account">{% trans "Já faz parte?" %} <a href="{{ login_url }}">{% trans "Faça o login" %}</a></p>
 
 </form>
 
 <p class="questions"><a href="#"><i class="fa fa-question-circle"></i>
 <i class="fa fa-times form-control-feedback"></i>
-        Problemas ou Dúvidas? <b>Fale com a gente!</b></a></p>
+        {% trans "Problemas ou Dúvidas?" %} <b>{% trans "Fale com a gente!" %}</b></a></p>

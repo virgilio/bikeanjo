@@ -8,8 +8,8 @@
 {% block content %}
 <section class="forms signup container">
     <header>
-        <h2>Só mais alguns dados</h2>
-        <p>Para melhorar seu cadastro vamos precisar só de mais alguns dados</p>
+        <h2>{% trans "Só mais alguns dados" %}</h2>
+        <p>{% trans "Para melhorar seu cadastro vamos precisar só de mais alguns dados" %}</p>
     </header>
 
     <form class="signup card" id="signup_form" method="post">
@@ -32,7 +32,7 @@
                         <span class="icons"><span class="first-icon"></span><span class="second-icon"></span></span>
                         <input type="radio" name="{{ form.gender.html_name }}" value="female"
                                {% if form.gender.value = 'female' %}checked="checked"{% endif %}>
-                        <span class="text">{% trans 'Female' %}</span>
+                        <span class="text">{% trans 'Feminino' %}</span>
                     </label>
                 </div>
                 <div class="select-gender">
@@ -40,7 +40,7 @@
                         <span class="icons"><span class="first-icon"></span><span class="second-icon"></span></span>
                         <input type="radio" name="{{ form.gender.html_name }}" value="male"
                                {% if form.gender.value = 'male' %}checked="checked"{% endif %}>
-                        <span class="text">{% trans 'Male' %}</span>
+                        <span class="text">{% trans 'Masculino' %}</span>
                     </label>
                 </div>
                 <div class="select-gender">
@@ -53,7 +53,7 @@
 
                         <input type="text" class="form-control" id="{{ form.gender.auto_id }}_custom"
                                value="{% if form.gender.value not in 'male,female' %}{{ form.gender.value|default:''}}{% endif %}"
-                               placeholder="Personalize">
+                               placeholder="{% trans "Personalize" %}">
 
                     </label>
                 </div>
@@ -89,8 +89,10 @@
                     <option>{% trans 'Month' %}</option>
                     <script type="text/javascript">(function(){
                     for(var i = 1; i <= 12; i++){
-                        var m = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
-                                 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+                        var m = ['{% trans "Janeiro" %}', '{% trans "Fevereiro" %}', '{% trans "Março" %}',
+                                 '{% trans "Abril" %}',   '{% trans "Maio" %}',      '{% trans "Junho" %}',
+                                 '{% trans "Julho" %}',   '{% trans "Agosto" %}',    '{% trans "Setembro" %}',
+                                 '{% trans "Outubro" %}', '{% trans "Novembro" %}',  '{% trans "Dezembro" %}'];
                         document.write('<option value="'+i+'"');
                         if(birthday_match && i == birthday_match[2]) {
                             document.write(' selected="selected"');
